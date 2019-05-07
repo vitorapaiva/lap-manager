@@ -29,15 +29,22 @@
 					<th>Velocidade Média</th>
 				</tr>
 			</thead>
-			<?php foreach($raceInfo['result'] as $pilotPosition) :?>			
-			<tr>
-				<td> <?php $lap->hora ?></td>
-				<td> <?php $lap->piloto ?></td>
-				<td> <?php $lap->volta ?></td>
-				<td> <?php $lap->tempo ?></td>
-				<td> <?php $lap->velocidade ?></td>
-			</tr>
-			<?php endforeach; ?>
+			<?php
+			if(isset($_FILES['raceInfo']))
+			{
+				foreach($raceInfo['result'] as $pilotPosition) :
+			?>			
+				<tr>
+					<td> <?php $lap->hora ?></td>
+					<td> <?php $lap->piloto ?></td>
+					<td> <?php $lap->volta ?></td>
+					<td> <?php $lap->tempo ?></td>
+					<td> <?php $lap->velocidade ?></td>
+				</tr>
+			<?php 
+				endforeach; 
+			}
+			?>
 		</table>
 	</div>
 </body>
