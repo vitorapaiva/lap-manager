@@ -2,23 +2,6 @@
 
 class LapManagerController {
 
-    public function saveFile($file)
-    {
-    	try{    		
-	        $file_extension = strtolower(substr($_FILES['raceInfo']['name'],-4)); 
-			$new_name = strtotime("now").trim($_FILES['raceInfo']['name']).$file_extension;
-			$dir = '/uploads/';
-			if(move_uploaded_file($_FILES['raceInfo']['tmp_name'], $dir.$new_name)){
-				return $dir.$new_name;
-			}
-			return false;
-    	}
-    	catch(Exception $e){
-    		echo $e->message;
-    		return false;
-    	}
-    }
-
     public function turnFileIntoArray($fileName){
     	if($fileName){
     		$raceInfo=file($fileName);
@@ -32,8 +15,7 @@ class LapManagerController {
     }
 
     public function processFile($file){
-    	$fileName=$this->saveFile($file);
-    	$arrayLap=$this->turnFileIntoArray($fileName);
+    	$arrayLap=$this->turnFileIntoArray($file);
     	var_dump($arrayLap);
     }
 }
