@@ -6,7 +6,7 @@ class LapManagerController {
     {
     	try{    		
 	        $file_extension = strtolower(substr($_FILES['raceInfo']['name'],-4)); 
-			$new_name = strtotime(date("Y.m.d-H.i.s")).$file_extension;
+			$new_name = strtotime("now").trim($_FILES['raceInfo']['name']).$file_extension;
 			$dir = 'uploads/';
 			if(move_uploaded_file($_FILES['raceInfo']['tmp_name'], $dir.$new_name)){
 				return $dir.$new_name;
