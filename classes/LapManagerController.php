@@ -9,7 +9,7 @@ class LapManagerController {
 			$new_name = strtotime(date("Y.m.d-H.i.s")).$file_extension;
 			$dir = 'uploads/';
 			if(move_uploaded_file($_FILES['raceInfo']['tmp_name'], $dir.$new_name)){
-				return $dir.$new_name
+				return $dir.$new_name;
 			}
 			return false;
     	}
